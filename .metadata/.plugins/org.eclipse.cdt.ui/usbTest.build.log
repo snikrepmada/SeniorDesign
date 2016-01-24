@@ -1,0 +1,11 @@
+21:57:44 **** Incremental Build of configuration Debug for project usbTest ****
+make all 
+Building target: usbTest.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/ap/git/SeniorDesign/stm32f4discovery_hal_lib/Debug" -T"/Users/ap/git/SeniorDesign/usbTest/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "usbTest.elf" @"objects.list"  -lstm32f4discovery_hal_lib
+/usr/local/gcc-arm-none-eabi-5_2-2015q4/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld: cannot find -lstm32f4discovery_hal_lib
+collect2: error: ld returned 1 exit status
+make: *** [usbTest.elf] Error 1
+
+21:57:44 Build Finished (took 76ms)
+

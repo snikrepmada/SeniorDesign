@@ -1,0 +1,90 @@
+15:26:03 **** Incremental Build of configuration Debug for project CamerTest2640 ****
+make all 
+Building file: ../src/dcmi_ov2640.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DOS_USE_SEMIHOSTING -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F407xx -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4xx" -I"../system/include/cmsis/device" -std=gnu11 -MMD -MP -MF"src/dcmi_ov2640.d" -MT"src/dcmi_ov2640.o" -c -o "src/dcmi_ov2640.o" "../src/dcmi_ov2640.c"
+In file included from ../include/core_cm4.h:145:0,
+                 from ../include/stm32f4xx.h:463,
+                 from ../include/main.h:11,
+                 from ../include/dcmi_ov2640.h:33,
+                 from ../src/dcmi_ov2640.c:33:
+../include/core_cmFunc.h: In function '__set_FPSCR':
+../include/core_cmFunc.h:585:78: warning: unused parameter 'fpscr' [-Wunused-parameter]
+ __attribute__( ( always_inline ) ) static __INLINE void __set_FPSCR(uint32_t fpscr)
+                                                                              ^
+../src/dcmi_ov2640.c: At top level:
+../src/dcmi_ov2640.c:52:1: warning: missing braces around initializer [-Wmissing-braces]
+ {
+ ^
+../src/dcmi_ov2640.c:52:1: note: (near initialization for 'OV2640_QQVGA')
+../src/dcmi_ov2640.c:385:1: warning: missing braces around initializer [-Wmissing-braces]
+ {
+ ^
+../src/dcmi_ov2640.c:385:1: note: (near initialization for 'OV2640_QVGA')
+../src/dcmi_ov2640.c:609:1: warning: missing braces around initializer [-Wmissing-braces]
+ {
+ ^
+../src/dcmi_ov2640.c:609:1: note: (near initialization for 'OV2640_JPEG_INIT')
+../src/dcmi_ov2640.c:804:1: warning: missing braces around initializer [-Wmissing-braces]
+ {
+ ^
+../src/dcmi_ov2640.c:804:1: note: (near initialization for 'OV2640_YUV422')
+../src/dcmi_ov2640.c:817:1: warning: missing braces around initializer [-Wmissing-braces]
+ {
+ ^
+../src/dcmi_ov2640.c:817:1: note: (near initialization for 'OV2640_JPEG')
+../src/dcmi_ov2640.c:830:1: warning: missing braces around initializer [-Wmissing-braces]
+ {
+ ^
+../src/dcmi_ov2640.c:830:1: note: (near initialization for 'OV2640_160x120_JPEG')
+../src/dcmi_ov2640.c:874:1: warning: missing braces around initializer [-Wmissing-braces]
+ {
+ ^
+../src/dcmi_ov2640.c:874:1: note: (near initialization for 'OV2640_176x144_JPEG')
+../src/dcmi_ov2640.c:918:1: warning: missing braces around initializer [-Wmissing-braces]
+ {
+ ^
+../src/dcmi_ov2640.c:918:1: note: (near initialization for 'OV2640_320x240_JPEG')
+../src/dcmi_ov2640.c:962:1: warning: missing braces around initializer [-Wmissing-braces]
+ {
+ ^
+../src/dcmi_ov2640.c:962:1: note: (near initialization for 'OV2640_352x288_JPEG')
+../src/dcmi_ov2640.c: In function 'OV2640_JPEGConfig':
+../src/dcmi_ov2640.c:1267:44: warning: unused parameter 'ImageFormat' [-Wunused-parameter]
+ void OV2640_JPEGConfig(ImageFormat_TypeDef ImageFormat)
+                                            ^
+Finished building: ../src/dcmi_ov2640.c
+ 
+Building file: ../src/main.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DOS_USE_SEMIHOSTING -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F407xx -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4xx" -I"../system/include/cmsis/device" -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+In file included from ../include/core_cm4.h:145:0,
+                 from ../include/stm32f4xx.h:463,
+                 from ../system/include/stm32f4xx/stm32f4xx_hal_def.h:48,
+                 from ../system/include/stm32f4xx/stm32f4xx_hal_rcc.h:47,
+                 from ../include/stm32f4xx_hal_conf.h:241,
+                 from ../system/include/stm32f4xx/stm32f4xx_hal.h:48,
+                 from ../src/main.c:34:
+../include/core_cmFunc.h: In function '__set_FPSCR':
+../include/core_cmFunc.h:585:78: warning: unused parameter 'fpscr' [-Wunused-parameter]
+ __attribute__( ( always_inline ) ) static __INLINE void __set_FPSCR(uint32_t fpscr)
+                                                                              ^
+In file included from ../include/stm32f4xx_hal_conf.h:253:0,
+                 from ../system/include/stm32f4xx/stm32f4xx_hal.h:48,
+                 from ../src/main.c:34:
+../system/include/stm32f4xx/stm32f4xx_hal_cortex.h: At top level:
+../system/include/stm32f4xx/stm32f4xx_hal_cortex.h:418:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'void'
+ __STATIC_INLINE void HAL_MPU_Disable(void)
+                 ^
+../system/include/stm32f4xx/stm32f4xx_hal_cortex.h:438:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'void'
+ __STATIC_INLINE void HAL_MPU_Enable(uint32_t MPU_Control)
+                 ^
+../src/main.c: In function 'MX_GPIO_Init':
+../src/main.c:204:27: error: 'GPIO_SPEED_LOW' undeclared (first use in this function)
+   GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+                           ^
+../src/main.c:204:27: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/main.o] Error 1
+
+15:26:03 Build Finished (took 333ms)
+

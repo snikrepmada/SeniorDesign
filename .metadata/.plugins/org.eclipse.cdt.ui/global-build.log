@@ -1,0 +1,51 @@
+14:07:57 **** Incremental Build of configuration Debug for project camera2640 Configuration ****
+make all 
+Building file: /Users/ap/git/SeniorDesign/camera2640/Src/main.c
+Invoking: MCU GCC Compiler
+/Users/ap/git/SeniorDesign/camera2640/SW4STM32/camera2640 Configuration/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak="__attribute__((weak))" -D__packed="__attribute__((__packed__))" -DUSE_HAL_DRIVER -DSTM32F407xx -I"/Users/ap/git/SeniorDesign/camera2640/Inc" -I"/Users/ap/git/SeniorDesign/camera2640/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/ap/git/SeniorDesign/camera2640/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/ap/git/SeniorDesign/camera2640/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/ap/git/SeniorDesign/camera2640/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/ap/git/SeniorDesign/camera2640/Drivers/CMSIS/Include" -I"/Users/ap/git/SeniorDesign/camera2640/Drivers/CMSIS/Device/ST/STM32F4xx/Include"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/Src/main.d" -MT"Application/Src/main.o" -o "Application/Src/main.o" "/Users/ap/git/SeniorDesign/camera2640/Src/main.c"
+/Users/ap/git/SeniorDesign/camera2640/Src/main.c: In function 'main':
+/Users/ap/git/SeniorDesign/camera2640/Src/main.c:38:38: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   CDC_Transmit_FS(USBStartMsg,strlen(USBStartMsg));
+                                      ^
+In file included from /Applications/Eclipse.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.6.0.201601131657/tools/compiler/arm-none-eabi/include/stdio.h:29:0,
+                 from /Users/ap/git/SeniorDesign/camera2640/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:50,
+                 from /Users/ap/git/SeniorDesign/camera2640/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:47,
+                 from /Users/ap/git/SeniorDesign/camera2640/Inc/stm32f4xx_hal_conf.h:241,
+                 from /Users/ap/git/SeniorDesign/camera2640/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:48,
+                 from /Users/ap/git/SeniorDesign/camera2640/Src/main.c:11:
+/Applications/Eclipse.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.6.0.201601131657/tools/compiler/arm-none-eabi/include/string.h:33:9: note: expected 'const char *' but argument is of type 'uint8_t *'
+ size_t  _EXFUN(strlen,(const char *));
+         ^
+/Users/ap/git/SeniorDesign/camera2640/Src/main.c:40:3: warning: implicit declaration of function 'LED_GRN_ON' [-Wimplicit-function-declaration]
+   LED_GRN_ON();
+   ^
+/Users/ap/git/SeniorDesign/camera2640/Src/main.c:42:3: warning: implicit declaration of function 'OV2640_Init' [-Wimplicit-function-declaration]
+   OV2640_Init();
+   ^
+/Users/ap/git/SeniorDesign/camera2640/Src/main.c:54:3: warning: implicit declaration of function 'LED_BLU_ON' [-Wimplicit-function-declaration]
+   LED_BLU_ON();
+   ^
+/Users/ap/git/SeniorDesign/camera2640/Src/main.c:60:5: warning: implicit declaration of function 'USER_PB_STATUS' [-Wimplicit-function-declaration]
+     status = USER_PB_STATUS();
+     ^
+/Users/ap/git/SeniorDesign/camera2640/Src/main.c:69:5: warning: implicit declaration of function 'LED_GRN_TGL' [-Wimplicit-function-declaration]
+     LED_GRN_TGL();
+     ^
+/Users/ap/git/SeniorDesign/camera2640/Src/main.c:48:12: warning: variable 'image' set but not used [-Wunused-but-set-variable]
+   uint8_t *image;
+            ^
+Finished building: /Users/ap/git/SeniorDesign/camera2640/Src/main.c
+ 
+Building target: camera2640.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F407VGTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "camera2640.elf" @"objects.list"  
+Finished building target: camera2640.elf
+ 
+/Applications/Xcode.app/Contents/Developer/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "camera2640.elf" "camera2640.bin"
+arm-none-eabi-size "camera2640.elf"
+   text	   data	    bss	    dec	    hex	filename
+  14756	    452	   3740	  18948	   4a04	camera2640.elf
+ 

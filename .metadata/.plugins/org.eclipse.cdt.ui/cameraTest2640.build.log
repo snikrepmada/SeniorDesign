@@ -1,0 +1,11 @@
+16:35:16 **** Incremental Build of configuration Release for project cameraTest2640 ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "cameraTest2640.elf"
+   text	   data	    bss	    dec	    hex	filename
+   5694	     48	    740	   6482	   1952	cameraTest2640.elf
+Finished building: cameraTest2640.siz
+ 
+
+16:35:16 Build Finished (took 130ms)
+
