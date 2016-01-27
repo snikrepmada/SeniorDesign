@@ -55,5 +55,6 @@ extern const int res_width[];
 extern const int res_height[];
 
 extern int OV2640_Init(void);
+int Sensor_Snapshot(uint8_t *image);
 
 #endif

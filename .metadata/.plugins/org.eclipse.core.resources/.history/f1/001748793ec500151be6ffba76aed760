@@ -45,7 +45,7 @@ int main(void)
 
   HAL_Delay(1000);
 
-  uint16_t *image[4];//*image[480000];
+  uint16_t *image[4]//*image[480000];
 
   Sensor_Snapshot(image);
 

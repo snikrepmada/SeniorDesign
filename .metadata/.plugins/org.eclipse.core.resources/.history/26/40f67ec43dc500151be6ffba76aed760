@@ -45,9 +45,11 @@ int main(void)
 
   HAL_Delay(1000);
 
-  uint16_t *image[4];//*image[480000];
+  uint8_t *image;
 
-  Sensor_Snapshot(image);
+  image = malloc(800*sizeof(uint8_t));
+
+  //Sensor_Snapshot(image);
 
   LED_BLU_ON();
 
