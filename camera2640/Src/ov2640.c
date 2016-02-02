@@ -12,6 +12,7 @@
 
 /* Includes ----------------------------------------------------------------- */
 #include "ov2640.h"
+#include "i2c.h"
 
 /* Private typedef ---------------------------------------------------------- */
 /* Private define ----------------------------------------------------------- */
@@ -21,7 +22,6 @@
 /* Bits definitions --------------------------------------------------------- */
 /* Private macro ------------------------------------------------------------ */
 /* Private variables -------------------------------------------------------- */
- I2C_HandleTypeDef hi2c1;
 
 static const uint8_t default_regs[][2] =
 {
@@ -244,6 +244,7 @@ static const uint8_t rgb565_regs[][2] =
 uint8_t SCCB_Write(uint8_t addr, uint8_t data);
 uint8_t SCCB_Read(uint8_t addr);
 void OV2640_ReadID(OV2640_IDTypeDef* OV2640ID);
+int32_t OV2640_CheckID(OV2640_IDTypeDef* OV2640ID);
 void OV2640_SetCameraRegisters(void);
 
 /* Private functions -------------------------------------------------------- */
@@ -265,7 +266,7 @@ uint8_t SCCB_Read(uint8_t addr)
 {
   uint8_t data = 0;
   __disable_irq();
-  if(HAL_I2C_Master_Receive(&hi2c1, OV2640_READ_ADDR, &addr, 1, TIMEOUT) != HAL_OK)
+  if(HAL_I2C_Master_Transmit(&hi2c1, OV2640_READ_ADDR, &addr, 1, TIMEOUT) != HAL_OK)
   {
     data = 0xFF;
     goto error_w;
@@ -281,10 +282,29 @@ uint8_t SCCB_Read(uint8_t addr)
 
 void OV2640_ReadID(OV2640_IDTypeDef* OV2640ID)
 {
+  SCCB_Write(0xFF, 0x01);
   OV2640ID->Manufacturer_ID1 = SCCB_Read(MIDH);
   OV2640ID->Manufacturer_ID2 = SCCB_Read(MIDL);
   OV2640ID->Version = SCCB_Read(REG_VER);
   OV2640ID->PID = SCCB_Read(REG_PID);
+}
+
+int32_t OV2640_CheckID(OV2640_IDTypeDef* OV2640ID)
+{
+  //uint16_t manufacturerID = (OV2640ID->Manufacturer_ID1 << 8) | (OV2640ID->Manufacturer_ID2);
+  if(((OV2640ID->Manufacturer_ID1 << 8) | (OV2640ID->Manufacturer_ID2)) != OV2640_MANUFACTURER_ID)
+  {
+    return -1;
+  }
+  if(OV2640ID->PID != OV2640_PID)
+  {
+    return -1;
+  }
+  if(OV2640ID->Version != OV2640_VERSION)
+  {
+    return -1;
+  }
+  return 0;
 }
 
 void OV2640_SetCameraRegisters(void)
@@ -320,7 +340,7 @@ void OV2640_SetCameraRegisters(void)
 }
 
 /* Public functions --------------------------------------------------------- */
-extern uint32_t OV2640_Init(void)
+extern int32_t OV2640_Init(void)
 {
   OV2640_IDTypeDef OV2640ID;
 
@@ -333,11 +353,17 @@ extern uint32_t OV2640_Init(void)
   DCMI_RST_LOW();
   HAL_Delay(10);
 
-  DCMI_PWRDN_HIGH();
+  DCMI_RST_HIGH();
   HAL_Delay(10);
 
   OV2640_ReadID(&OV2640ID);
-
+  
+  if(OV2640_CheckID(&OV2640ID) != 0)
+  {
+    printf("Camera OV2640 not found.\n\r");
+    return -1;
+  }
+  
   OV2640_SetCameraRegisters();
 
   return 0;

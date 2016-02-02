@@ -16,13 +16,18 @@ typedef struct
 } OV2640_IDTypeDef;
 
 /* SCCB Address for OV2640 */
-#define OV2640_READ_ADDR    0x60
-#define OV2640_WRITE_ADDR   0x61
+#define OV2640_READ_ADDR  0x60
+#define OV2640_WRITE_ADDR 0x61
 
 /* Register Bank Select */
-#define BANK_SEL                0xFF
-#define BANK_SEL_DSP            0x00
-#define BANK_SEL_SENSOR         0x01
+#define BANK_SEL        0xFF
+#define BANK_SEL_DSP    0x00
+#define BANK_SEL_SENSOR 0x01
+
+/* OV2640 Camera Information */
+#define OV2640_MANUFACTURER_ID 0x7FA2
+#define OV2640_PID             0x26
+#define OV2640_VERSION         0x42
 
 /* DSP register bank Reg 0xFF=0x00 sets this as active */
 /* ENABLE = 1
@@ -217,6 +222,6 @@ typedef struct
 #define REG32_CIF           0x00
 
 /* Private function prototypes -----------------------------------------------*/
-extern uint32_t OV2640_Init(void);
+extern int32_t OV2640_Init(void);
 
 #endif //__OV2640_H__

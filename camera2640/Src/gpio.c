@@ -67,10 +67,10 @@ void MX_GPIO_Init(void)
   __GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin : PtPin */
-  GPIO_InitStruct.Pin = USER_PB_Pin;
+  GPIO_InitStruct.Pin = USR_PB_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(USER_PB_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(USR_PB_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = USR_CS_Pin;

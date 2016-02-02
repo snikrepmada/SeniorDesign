@@ -32,6 +32,7 @@
   */
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
+#include "mxconstants.h"
 #include "dcmi.h"
 #include "dma.h"
 #include "i2c.h"
@@ -39,6 +40,8 @@
 #include "usart.h"
 #include "usb_device.h"
 #include "gpio.h"
+#include "ov2640.h"
+#include "debug.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -89,7 +92,7 @@ int main(void)
   MX_USB_DEVICE_Init();
 
   /* USER CODE BEGIN 2 */
-
+  OV2640_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -97,7 +100,8 @@ int main(void)
   while (1)
   {
   /* USER CODE END WHILE */
-
+    LED_GRN_TGL();
+    HAL_Delay(500);
   /* USER CODE BEGIN 3 */
 
   }

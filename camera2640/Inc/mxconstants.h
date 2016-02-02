@@ -38,8 +38,8 @@
 
 /* Private define ------------------------------------------------------------*/
 
-#define USER_PB_Pin GPIO_PIN_0
-#define USER_PB_GPIO_Port GPIOA
+#define USR_PB_Pin GPIO_PIN_0
+#define USR_PB_GPIO_Port GPIOA
 #define USR_TX_Pin GPIO_PIN_2
 #define USR_TX_GPIO_Port GPIOA
 #define USR_RX_Pin GPIO_PIN_3

@@ -1,4 +1,4 @@
-#include "debug.c"
+#include "debug.h"
 
 struct __FILE
 {
