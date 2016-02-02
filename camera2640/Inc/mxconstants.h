@@ -75,15 +75,15 @@
 #define DCMI_SDA_Pin GPIO_PIN_9
 #define DCMI_SDA_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
-
+#define BREAK() __asm__ volatile ("BKPT")
 /* USER CODE END Private defines */
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-*/ 
+*/
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
