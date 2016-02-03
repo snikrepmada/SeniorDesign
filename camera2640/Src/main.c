@@ -44,7 +44,8 @@
 #include "debug.h"
 
 /* USER CODE BEGIN Includes */
-
+uint32_t frame_addr;
+uint32_t frame_length;
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -94,7 +95,12 @@ int main(void)
   /* USER CODE BEGIN 2 */
   OV2640_Init();
   /* USER CODE END 2 */
-
+  
+  
+  frame_length = (320*240*2)/4;
+  HAL_DCMI_Start_DMA(&hdcmi, DCMI_MODE_SNAPSHOT, frame_addr, frame_length);
+  while((DCMI->CR & DCMI_CR_CAPTURE) != 0);
+  
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -102,6 +108,8 @@ int main(void)
   /* USER CODE END WHILE */
     LED_GRN_TGL();
     HAL_Delay(500);
+    
+    
   /* USER CODE BEGIN 3 */
 
   }

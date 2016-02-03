@@ -291,7 +291,6 @@ void OV2640_ReadID(OV2640_IDTypeDef* OV2640ID)
 
 int32_t OV2640_CheckID(OV2640_IDTypeDef* OV2640ID)
 {
-  //uint16_t manufacturerID = (OV2640ID->Manufacturer_ID1 << 8) | (OV2640ID->Manufacturer_ID2);
   if(((OV2640ID->Manufacturer_ID1 << 8) | (OV2640ID->Manufacturer_ID2)) != OV2640_MANUFACTURER_ID)
   {
     return -1;
