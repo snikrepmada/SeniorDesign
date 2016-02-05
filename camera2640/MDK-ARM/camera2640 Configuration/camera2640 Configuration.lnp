@@ -41,7 +41,7 @@
 "camera2640 configuration\usbd_cdc.o"
 "camera2640 configuration\startup_stm32f407xx.o"
 "camera2640 configuration\system_stm32f4xx.o"
---library_type=microlib --strict --scatter "camera2640 Configuration\camera2640 Configuration.sct"
+--strict --scatter "camera2640 Configuration\camera2640 Configuration.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "camera2640 Configuration.map" -o "camera2640 Configuration\camera2640 Configuration.axf"

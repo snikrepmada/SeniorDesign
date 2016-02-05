@@ -310,6 +310,7 @@ void OV2640_SetCameraRegisters(void)
 {
   uint32_t i = 0;
   const uint8_t(*regs)[2];
+  uint8_t reg;
 
   /* Reset all the registers */
   SCCB_Write(BANK_SEL, BANK_SEL_SENSOR);
@@ -336,6 +337,10 @@ void OV2640_SetCameraRegisters(void)
     HAL_Delay(DELAY);
     i++;
   }
+  SCCB_Write(0xFF, 0x01);
+  reg = SCCB_Read(COM7);
+  reg |= COM7_COLOR_BAR;
+  SCCB_Write(COM7, reg);
 }
 
 /* Public functions --------------------------------------------------------- */
