@@ -1,74 +1,49 @@
-/*
-  ******************************************************************************
-  * File Name          : main.c
-  * Description        : Main program body
-  ******************************************************************************
-  *
-  *
-  ******************************************************************************
-  */
+/*******************************************************************************
+ * File Name   : main.c
+ * Author      : Adam Perkins
+ * Version     : 0.1.0
+ * Date        : 30-January-2016
+ * Description : Main for camera OV2640 to USB VCP
+ *******************************************************************************
+ *
+ * Information
+ *
+ ******************************************************************************/
 
-#include "stm32f4xx_hal.h"
-#include "dcmi.h"
-#include "i2c.h"
-#include "spi.h"
-#include "usart.h"
-#include "usb_device.h"
-#include "gpio.h"
-#include "usbd_cdc_if.h"
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
 
-void SystemClock_Config(void);
+/* Private variables ---------------------------------------------------------*/
+/* Private function prototypes -----------------------------------------------*/
 
 int main(void)
 {
-   HAL_Init();
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
 
+  /* Configure the system clock */
   SystemClock_Config();
 
+  /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_DCMI_Init();
-  //MX_SPI1_Init();
-  //MX_USART2_UART_Init();
+  MX_I2C1_Init();
+  MX_I2C2_Init();
+  MX_SPI1_Init();
+  MX_UART5_Init();
+  __asm__ volatile ("NOP");
   MX_USB_DEVICE_Init();
-
-  //LED_BLU_ON();
-
-  //HAL_Delay(5000);
-  uint8_t USBStartMsg[]="USB Communications has started.\n\r";
-  CDC_Transmit_FS(USBStartMsg,strlen(USBStartMsg));
-
-  LED_GRN_ON();
 
   OV2640_Init();
 
-  int status;
-
-  HAL_Delay(1000);
-
-  uint16_t *image[4];//*image[480000];
-
-  Sensor_Snapshot(image);
-
-  LED_BLU_ON();
-
-  int i;
-
   while (1)
   {
-    status = USER_PB_STATUS();
-    if(status == 1)
-    {
-      for(i = 0; i < 0xFFFC; i++)
-      {
-        //CDC_Transmit_FS(image[i], 1);
-      }
-      //CDC_Transmit_FS("PRESSED\n\r", 9);
-    }
-    LED_GRN_TGL();
-    HAL_Delay(500);
+	  LED_BLU_TGL();
   }
 }
 
+/* System Clock Configuration */
 void SystemClock_Config(void)
 {
 
@@ -89,13 +64,12 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLQ = 4;
   HAL_RCC_OscConfig(&RCC_OscInitStruct);
 
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_PCLK1
-                              |RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_PCLK1;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV4;
-  HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3);
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1);
 
   HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_PLLCLK, RCC_MCODIV_4);
 
@@ -103,5 +77,15 @@ void SystemClock_Config(void)
 
   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
 
+  /* SysTick_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
+
+#ifdef USE_FULL_ASSERT
+void assert_failed(uint8_t* file, uint32_t line)
+{
+
+}
+#endif
+
+/* ****************************** END OF FILE ******************************* */

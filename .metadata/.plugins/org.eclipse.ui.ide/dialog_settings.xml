@@ -5,9 +5,8 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/ap/git/SeniorDesign/standalone"/>
 			<item value="/Users/ap/git/SeniorDesign"/>
-			<item value="/Users/ap/git/STM32_configs"/>
-			<item value="/Users/ap/git/STM32_configs/output"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>

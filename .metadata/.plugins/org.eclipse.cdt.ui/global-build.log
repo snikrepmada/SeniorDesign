@@ -1,51 +1,27 @@
-16:39:44 **** Incremental Build of configuration Debug for project camera2640 Configuration ****
+14:22:23 **** Incremental Build of configuration Debug for project cameraInit Configuration ****
 make all 
-Building file: /Users/ap/git/SeniorDesign/camera2640/Src/main.c
+Building file: /Users/ap/git/SeniorDesign/standalone/cameraInit/Src/main.c
 Invoking: MCU GCC Compiler
-/Users/ap/git/SeniorDesign/camera2640/SW4STM32/camera2640 Configuration/Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak="__attribute__((weak))" -D__packed="__attribute__((__packed__))" -DUSE_HAL_DRIVER -DSTM32F407xx -I"/Users/ap/git/SeniorDesign/camera2640/Inc" -I"/Users/ap/git/SeniorDesign/camera2640/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/ap/git/SeniorDesign/camera2640/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/ap/git/SeniorDesign/camera2640/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/ap/git/SeniorDesign/camera2640/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/ap/git/SeniorDesign/camera2640/Drivers/CMSIS/Include" -I"/Users/ap/git/SeniorDesign/camera2640/Drivers/CMSIS/Device/ST/STM32F4xx/Include"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/Src/main.d" -MT"Application/Src/main.o" -o "Application/Src/main.o" "/Users/ap/git/SeniorDesign/camera2640/Src/main.c"
-/Users/ap/git/SeniorDesign/camera2640/Src/main.c: In function 'main':
-/Users/ap/git/SeniorDesign/camera2640/Src/main.c:38:38: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
-   CDC_Transmit_FS(USBStartMsg,strlen(USBStartMsg));
-                                      ^
-In file included from /Applications/Eclipse.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.6.0.201601131657/tools/compiler/arm-none-eabi/include/stdio.h:29:0,
-                 from /Users/ap/git/SeniorDesign/camera2640/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:50,
-                 from /Users/ap/git/SeniorDesign/camera2640/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:47,
-                 from /Users/ap/git/SeniorDesign/camera2640/Inc/stm32f4xx_hal_conf.h:241,
-                 from /Users/ap/git/SeniorDesign/camera2640/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:48,
-                 from /Users/ap/git/SeniorDesign/camera2640/Src/main.c:11:
-/Applications/Eclipse.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.6.0.201601131657/tools/compiler/arm-none-eabi/include/string.h:33:9: note: expected 'const char *' but argument is of type 'uint8_t *'
- size_t  _EXFUN(strlen,(const char *));
-         ^
-/Users/ap/git/SeniorDesign/camera2640/Src/main.c:42:3: warning: implicit declaration of function 'OV2640_Init' [-Wimplicit-function-declaration]
-   OV2640_Init();
-   ^
-/Users/ap/git/SeniorDesign/camera2640/Src/main.c:50:3: warning: implicit declaration of function 'Sensor_Snapshot' [-Wimplicit-function-declaration]
-   Sensor_Snapshot(image);
-   ^
-Finished building: /Users/ap/git/SeniorDesign/camera2640/Src/main.c
+/Users/ap/git/SeniorDesign/standalone/cameraInit/SW4STM32/cameraInit Configuration/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak="__attribute__((weak))" -D__packed="__attribute__((__packed__))" -DUSE_HAL_DRIVER -DSTM32F407xx -I"/Users/ap/git/SeniorDesign/standalone/cameraInit/Inc" -I"/Users/ap/git/SeniorDesign/standalone/cameraInit/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/ap/git/SeniorDesign/standalone/cameraInit/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/ap/git/SeniorDesign/standalone/cameraInit/Drivers/CMSIS/Include" -I"/Users/ap/git/SeniorDesign/standalone/cameraInit/Drivers/CMSIS/Device/ST/STM32F4xx/Include"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/User/main.d" -MT"Application/User/main.o" -o "Application/User/main.o" "/Users/ap/git/SeniorDesign/standalone/cameraInit/Src/main.c"
+/Users/ap/git/SeniorDesign/standalone/cameraInit/Src/main.c: In function 'OV2640_SetCameraRegisters':
+/Users/ap/git/SeniorDesign/standalone/cameraInit/Src/main.c:818:11: warning: unused variable 'reg' [-Wunused-variable]
+   uint8_t reg;
+           ^
+Finished building: /Users/ap/git/SeniorDesign/standalone/cameraInit/Src/main.c
  
-Building target: camera2640.elf
+Building target: cameraInit Configuration.elf
 Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F407VGTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "camera2640.elf" @"objects.list"  
-Finished building target: camera2640.elf
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F407VGTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "cameraInit Configuration.elf" @"objects.list"  
+Finished building target: cameraInit Configuration.elf
  
 /Applications/Xcode.app/Contents/Developer/usr/bin/make --no-print-directory post-build
 Generating binary and Printing size information:
-arm-none-eabi-objcopy -O binary "camera2640.elf" "camera2640.bin"
-arm-none-eabi-size "camera2640.elf"
+arm-none-eabi-objcopy -O binary "cameraInit Configuration.elf" "cameraInit Configuration.bin"
+arm-none-eabi-size "cameraInit Configuration.elf"
    text	   data	    bss	    dec	    hex	filename
-  15488	    452	   4252	  20192	   4ee0	camera2640.elf
+   5576	     12	   1628	   7216	   1c30	cameraInit Configuration.elf
  
-16:39:49 **** Incremental Build of configuration Debug for project camera2640 Configuration ****
-make all 
-make: Nothing to be done for `all'.
-16:39:59 **** Incremental Build of configuration Debug for project camera2640 Configuration ****
-make all 
-make: Nothing to be done for `all'.
-16:40:08 **** Incremental Build of configuration Debug for project camera2640 Configuration ****
-make all 
-make: Nothing to be done for `all'.
-16:40:22 **** Incremental Build of configuration Debug for project camera2640 Configuration ****
+14:22:27 **** Incremental Build of configuration Debug for project cameraInit Configuration ****
 make all 
 make: Nothing to be done for `all'.

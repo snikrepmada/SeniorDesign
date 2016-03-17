@@ -1,6 +1,6 @@
-15:42:19 **** Build of configuration Debug for project camera2640 ****
+18:50:44 **** Incremental Build of configuration Debug for project camera2640 ****
 make all 
-make: *** No rule to make target `/Users/ap/git/STM32_configs/camera2640/STM32_configs/camera2640/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c', needed by `Middlewares/USB_Device_Library/usbd_cdc.o'.  Stop.
+make: Nothing to be done for `all'.
 
-15:42:19 Build Finished (took 68ms)
+18:50:44 Build Finished (took 82ms)
 
