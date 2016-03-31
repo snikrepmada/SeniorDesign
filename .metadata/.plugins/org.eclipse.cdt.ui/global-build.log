@@ -1,27 +1,6 @@
-14:22:23 **** Incremental Build of configuration Debug for project cameraInit Configuration ****
+14:13:55 **** Incremental Build of configuration Debug for project cameraInit Configuration ****
 make all 
-Building file: /Users/ap/git/SeniorDesign/standalone/cameraInit/Src/main.c
-Invoking: MCU GCC Compiler
-/Users/ap/git/SeniorDesign/standalone/cameraInit/SW4STM32/cameraInit Configuration/Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak="__attribute__((weak))" -D__packed="__attribute__((__packed__))" -DUSE_HAL_DRIVER -DSTM32F407xx -I"/Users/ap/git/SeniorDesign/standalone/cameraInit/Inc" -I"/Users/ap/git/SeniorDesign/standalone/cameraInit/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/ap/git/SeniorDesign/standalone/cameraInit/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/ap/git/SeniorDesign/standalone/cameraInit/Drivers/CMSIS/Include" -I"/Users/ap/git/SeniorDesign/standalone/cameraInit/Drivers/CMSIS/Device/ST/STM32F4xx/Include"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/User/main.d" -MT"Application/User/main.o" -o "Application/User/main.o" "/Users/ap/git/SeniorDesign/standalone/cameraInit/Src/main.c"
-/Users/ap/git/SeniorDesign/standalone/cameraInit/Src/main.c: In function 'OV2640_SetCameraRegisters':
-/Users/ap/git/SeniorDesign/standalone/cameraInit/Src/main.c:818:11: warning: unused variable 'reg' [-Wunused-variable]
-   uint8_t reg;
-           ^
-Finished building: /Users/ap/git/SeniorDesign/standalone/cameraInit/Src/main.c
- 
-Building target: cameraInit Configuration.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F407VGTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "cameraInit Configuration.elf" @"objects.list"  
-Finished building target: cameraInit Configuration.elf
- 
-/Applications/Xcode.app/Contents/Developer/usr/bin/make --no-print-directory post-build
-Generating binary and Printing size information:
-arm-none-eabi-objcopy -O binary "cameraInit Configuration.elf" "cameraInit Configuration.bin"
-arm-none-eabi-size "cameraInit Configuration.elf"
-   text	   data	    bss	    dec	    hex	filename
-   5576	     12	   1628	   7216	   1c30	cameraInit Configuration.elf
- 
-14:22:27 **** Incremental Build of configuration Debug for project cameraInit Configuration ****
+make: Nothing to be done for `all'.
+14:13:57 **** Incremental Build of configuration Debug for project cameraInit Configuration ****
 make all 
 make: Nothing to be done for `all'.
